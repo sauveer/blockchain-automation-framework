@@ -10,7 +10,9 @@ implementation.
 |   |-- indy-domain-genesis
 |   |-- indy-key-mgmt
 |   |-- indy-ledger-txn
+|   |-- indy-ledger-txn-new-node
 |   |-- indy-node
+|   |-- indy-node-new
 |   |-- indy-pool-genesis
 ```
 ---------
@@ -121,6 +123,14 @@ This folder contains helm chart which is used to run Indy Ledger Transaction Scr
 |-- values.yaml
 ```
 
+```
+/indy-ledger-txn-new-node
+|-- templates
+|   |-- job.yaml
+|-- Chart.yaml
+|-- values.yaml
+```
+
 ### Charts description
 
 #### templates
@@ -143,7 +153,7 @@ This folder consists indy-node helm charts, which are used by the ansible playbo
 
 ### Folder Structure
 ```
-/instantiate_chaincode
+/indy-node
 |-- templates
 |   |-- configmap.yaml
 |   |-- service.yaml
@@ -152,6 +162,15 @@ This folder consists indy-node helm charts, which are used by the ansible playbo
 |-- values.yaml
 ```
 
+```
+/indy-node-new
+|-- templates
+|   |-- configmap.yaml
+|   |-- service.yaml
+|   |-- statesfulset.yaml
+|-- Chart.yaml
+|-- values.yaml
+```
 ### Charts description
 
 #### templates
