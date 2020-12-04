@@ -1,0 +1,28 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: employer-dtg
+  annotations:
+    fluxcd.io/automated: "false"
+  namespace: employer-ns
+spec:
+  releaseName: employer-dtg
+  chart:
+    path: platforms/hyperledger-indy/charts/indy-domain-genesis
+    git: ssh://git@github.com/sauveergoel/blockchain-automation-framework.git
+    ref: indytest
+  values:
+    metadata:
+      name: employer-dtg
+      namespace: employer-ns
+    organization:
+      name: employer
+    configmap:
+      domainGenesis: |-
+        {"reqSignature":{},"txn":{"data":{"alias":"authority-trustee","dest":"LV538Jz56zV37WpyQ1F1ft","role":"0","verkey":"BcvjDFtqhMfpkjYCn2QFZzzcHA7BNxVTZdWmhvRdoyau"},"metadata":{},"type":"1"},"txnMetadata":{"seqNo":1},"ver":"1"}
+        {"reqSignature":{},"txn":{"data":{"alias":"university-trustee","dest":"StUc39RcHw9B39vijE8fuB","role":"0","verkey":"F7McdDz6WFBw4mQ3aLoXGx94PWibLM732yNCSmerpJT9"},"metadata":{"from":"LV538Jz56zV37WpyQ1F1ft"},"type":"1"},"txnMetadata":{"seqNo":2},"ver":"1"}
+        {"reqSignature":{},"txn":{"data":{"alias":"university-steward-1","dest":"5baYisdFoJbDo2r7MHWScJ","role":"2","verkey":"3WJ4ynrF2Zu5JwFjdvermbGEfevWSWtJTzSKz2HfN86V"},"metadata":{"from":"StUc39RcHw9B39vijE8fuB"},"type":"1"},"txnMetadata":{"seqNo":3},"ver":"1"}
+        {"reqSignature":{},"txn":{"data":{"alias":"university-steward-2","dest":"DdE5QQaKrCgXEunv4QQfLH","role":"2","verkey":"7t66DMDcZEuQL1b8WtniBxbXh3v9JzcJnvLqTtdCCLUf"},"metadata":{"from":"StUc39RcHw9B39vijE8fuB"},"type":"1"},"txnMetadata":{"seqNo":4},"ver":"1"}
+        {"reqSignature":{},"txn":{"data":{"alias":"employer-trustee","dest":"NiR6F8Yjn42BRw5U3DHiRm","role":"0","verkey":"CqRbvMQ9wGBAwHdZCsUcQZGEpRB8z5PFtjz449GZn3Dm"},"metadata":{"from":"LV538Jz56zV37WpyQ1F1ft"},"type":"1"},"txnMetadata":{"seqNo":5},"ver":"1"}
+        {"reqSignature":{},"txn":{"data":{"alias":"employer-steward-1","dest":"SRfiNG47R6kh2SNgXNgBkV","role":"2","verkey":"Erk9TcdTA5eyd34NLKdseefnypQVURA3cN94MY9yUpmW"},"metadata":{"from":"NiR6F8Yjn42BRw5U3DHiRm"},"type":"1"},"txnMetadata":{"seqNo":6},"ver":"1"}
+        {"reqSignature":{},"txn":{"data":{"alias":"employer-steward-2","dest":"FiTAzc6NtfvCy7V5VRTuts","role":"2","verkey":"92AH2kowbUMmwA1UrTeJx1zWN3y2LBEpsTroCmoAHpCD"},"metadata":{"from":"NiR6F8Yjn42BRw5U3DHiRm"},"type":"1"},"txnMetadata":{"seqNo":7},"ver":"1"}
