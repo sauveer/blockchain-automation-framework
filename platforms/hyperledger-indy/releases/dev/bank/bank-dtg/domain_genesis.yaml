@@ -1,0 +1,24 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: bank-dtg
+  annotations:
+    fluxcd.io/automated: "false"
+  namespace: bank-ns
+spec:
+  releaseName: bank-dtg
+  chart:
+    path: platforms/hyperledger-indy/charts/indy-domain-genesis
+    git: ssh://git@github.com/sauveergoel/blockchain-automation-framework.git
+    ref: testindy
+  values:
+    metadata:
+      name: bank-dtg
+      namespace: bank-ns
+    organization:
+      name: bank
+    configmap:
+      domainGenesis: |-
+        {"reqSignature":{},"txn":{"data":{"alias":"bank-trustee","dest":"TesWMEaveceXgyzk7qMLYy","role":"0","verkey":"FXZ2MLb8vNHHm5sE1CqBC8er4PMD2REtaX4oiVndh6dp"},"metadata":{},"type":"1"},"txnMetadata":{"seqNo":1},"ver":"1"}
+        {"reqSignature":{},"txn":{"data":{"alias":"bank-steward-1","dest":"GSDbi5b4zSXksW74NZHhVo","role":"2","verkey":"9QvahLiU9SKfRMDuht5Drkw3ptMpFjyCQfKfGVHEpS9h"},"metadata":{"from":"TesWMEaveceXgyzk7qMLYy"},"type":"1"},"txnMetadata":{"seqNo":2},"ver":"1"}
+        {"reqSignature":{},"txn":{"data":{"alias":"bank-steward-2","dest":"Dj93gXX6vpV5rGndsjCrJf","role":"2","verkey":"7wK2BUDPfPvUepQ1LRxSQF8mwvFkD1MkL2gdwPsY4sEr"},"metadata":{"from":"TesWMEaveceXgyzk7qMLYy"},"type":"1"},"txnMetadata":{"seqNo":3},"ver":"1"}
